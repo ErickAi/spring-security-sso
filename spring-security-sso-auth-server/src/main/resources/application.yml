@@ -1,4 +1,4 @@
 server:
-  port: 8081
+  port: 8070
   servlet.context-path: /auth
 logging.level.org.springframework: DEBUG

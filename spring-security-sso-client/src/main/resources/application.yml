@@ -1,0 +1,35 @@
+server:
+  port: 8071
+spring:
+  thymeleaf:
+    cache: false
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        jdbc.batch_size: 20
+  datasource:
+    #tcp-connection: jdbc:h2:tcp://localhost:9092/mem:client
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:client
+    username: admin
+    password:
+security:
+  oauth2:
+    client:
+      clientId: client_id
+      clientSecret: client_secret
+      accessTokenUri: http://localhost:8081/auth/oauth/token
+      userAuthorizationUri: http://localhost:8081/auth/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:8081/auth/user/me
+
+logging:
+  level:
+    org.springframework: info
+    org.securityclient: debug

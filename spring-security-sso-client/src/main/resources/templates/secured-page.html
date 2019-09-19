@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: base_head (~{:: title})">
+  <title>Protected page</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="col-sm-12">
+    <h1>Secured Page</h1>
+    <div>
+      <h1>Welcome, <span th:text="${#authentication.name}">Stranger</span></h1>
+      <a class="btn btn-primary" th:href="logout">LOGOUT</a>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>hasAuthority</th>
+          <th>condition</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ROLE_USER</td>
+          <td><span sec:authorize="hasAuthority('ROLE_USER')" th:text="true">false</span></td>
+        </tr>
+        <tr>
+          <td>ROLE_ADMIN</td>
+          <td><span sec:authorize="hasAuthority('ROLE_ADMIN')" th:text="true">false</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

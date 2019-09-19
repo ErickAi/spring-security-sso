@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: base_head (~{:: title})">
+  <title>Welcome page</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="col-sm-12">
+    <h1>Security Application</h1>
+    <h1>Welcome, <span th:text="${#authentication.name}">Stranger</span></h1>
+    <a class="btn btn-primary" th:href="login">Login page</a>
+    <a class="btn btn-primary" th:href="secured-page">Secured page</a>
+  </div>
+</div>
+</body>
+</html>

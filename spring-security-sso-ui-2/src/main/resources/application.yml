@@ -1,10 +1,8 @@
 server:
-    port: 8083
-    servlet:
-      context-path: /ui-2
-#    session.cookie.name: UI1SESSION    # DEPRECATED
+  port: 8073
+  servlet:
+    context-path: /ui-2
 security:
-  #  basic.enabled: false                 # DEPRECATED
   oauth2:
     client:
       clientId: SampleClientId
