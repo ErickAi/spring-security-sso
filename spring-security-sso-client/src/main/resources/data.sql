@@ -7,5 +7,6 @@ VALUES ('admin@mail.ru', 'Admin', 'Admin', '{noop}admin'),
 
 INSERT INTO USER_ROLE (ROLE, USER_ID)
 VALUES ('ROLE_ADMIN', 1),
+       ('ROLE_USER', 1),
        ('ROLE_USER', 2),
        ('ROLE_USER', 3);

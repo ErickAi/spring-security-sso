@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: base_head (~{:: title})">
+  <title>Protected page</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-7">
+      <h1>Profile Page</h1>
+    </div>
+    <div class="col-5">
+      <a class="btn btn-info" th:href="index">Home page</a>
+      <a class="btn btn-info" th:href="login">Login page</a>
+      <a class="btn btn-outline-secondary" th:href="logout">LOGOUT</a>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div>
+      <h1 class="mt-3">Welcome, <span th:text="${#authentication.name}"></span></h1>
+      <h3 class="mt-2">Your profile:</h3>
+      <p>Authorization: <span th:text="${#authentication.class}"></span>
+      <pre><code th:text="${#authentication.getPrincipal()}"></code></pre>
+      <h3 class="mt-2">Your authorities:</h3>
+      <table>
+        <tbody>
+        <tr th:each="authority : ${#authentication.getAuthorities()}">
+          <td><span th:text="${authority}"></span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
